@@ -85,7 +85,7 @@ class Array
     }
 }
 
-public class Main
+public class BasicOperation
 {
     public static void main(String[] args)
     {
