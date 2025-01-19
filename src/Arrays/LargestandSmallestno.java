@@ -10,7 +10,8 @@ class Arraydemo2
         return ans;
     }
 
-    void array() {
+    void array()
+    {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter the Number : ");
         int n = sc.nextInt();
@@ -18,15 +19,18 @@ class Arraydemo2
         int[] arr = new int[n];
 
         System.out.print("Enter " + n + " Elements : ");
-        for (int i = 0; i < arr.length; i++) {
+        for (int i = 0; i < arr.length; i++)
+        {
             arr[i] = sc.nextInt();
         }
 
         System.out.print("Array Elements : {");
-        for (int i = 0; i < arr.length; i++) {
+        for (int i = 0; i < arr.length; i++)
+        {
             System.out.print(arr[i]);
 
-            if (i < arr.length - 1) {
+            if (i < arr.length - 1)
+            {
                 System.out.print(",");
             }
         }
