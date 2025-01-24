@@ -2,7 +2,7 @@ package Arrays;
 
 import java.util.*;
 
-public class Digonalsum
+public class DiagonalSumMatrix
 {
     public static void main(String[] args)
     {
