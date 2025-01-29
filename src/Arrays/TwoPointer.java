@@ -2,13 +2,13 @@ package Arrays;
 
 import java.util.Scanner;
 
-// Sort and Array consist of only 0 and 1
+// Sort an Array consisting of only 0s and 1s using the Two-Pointer Approach
 
 class ArrayDemo1234 {
     void arrays() {
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("Enter the Number: ");
+        System.out.print("Enter the Number of Elements: ");
         int n = sc.nextInt();
 
         int[] arr = new int[n];
@@ -26,15 +26,13 @@ class ArrayDemo1234 {
         }
         System.out.println("}");
 
-        // Sorting the array
+        // Sorting the array using the Two-Pointer Approach
         sortZeroandOne(arr);
 
         System.out.print("Sorted Array: {");
-        for (int i = 0; i < arr.length; i++)
-        {
+        for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i]);
-            if (i < arr.length - 1)
-            {
+            if (i < arr.length - 1) {
                 System.out.print(", ");
             }
         }
@@ -43,38 +41,38 @@ class ArrayDemo1234 {
         sc.close();
     }
 
-    static void sortZeroandOne(int[] arr)
-    {
-        int count = 0;
+    static void sortZeroandOne(int[] arr) {
+        int left = 0, right = arr.length - 1;
 
-        // Count the number of zeroes
-        for (int i = 0; i < arr.length; i++)
-        {
-            if (arr[i] == 0)
-            {
-                count++;
+        while (left < right) {
+            // Move left pointer forward if it's already 0
+            while (left < right && arr[left] == 0) {
+                left++;
             }
-        }
+            // Move right pointer backward if it's already 1
+            while (left < right && arr[right] == 1) {
+                right--;
+            }
 
-        // Place zeroes first, then ones
-        for (int i = 0; i < arr.length; i++)
-        {
-            if (i < count)
-            {
-                arr[i] = 0;
-            }
-            else
-            {
-                arr[i] = 1;
+            // Swap elements if left is at 1 and right is at 0
+            if (left < right) {
+                swap(arr, left, right);
+                left++;
+                right--;
             }
         }
     }
+
+    // Swap function to exchange two elements in the array
+    static void swap(int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
 }
 
-public class TwoPointer
-{
-    public static void main(String[] args)
-    {
+public class TwoPointer {
+    public static void main(String[] args) {
         ArrayDemo1234 obj = new ArrayDemo1234();
         obj.arrays();
     }
