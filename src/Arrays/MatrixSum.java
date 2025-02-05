@@ -2,7 +2,7 @@ package Arrays;
 
 import java.util.*;
 
-public class MatrixAddition
+public class MatrixSum
 {
     static void matrix1(int[][] arr1)
     {
