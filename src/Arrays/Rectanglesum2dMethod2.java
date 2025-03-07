@@ -1,20 +1,42 @@
 package Arrays;
+
+// Pre-calculating the horizontal sum for each row in the matrix.//
+
 import java.util.*;
 
-/*
-    Given a matrix 'a' of dimension n*m and 2 co-ordinates (l1,r1) and
-    (l2,r2).Return the sum of Rectangle from (l1,r1) to (l2 to r2).
-*/
-public class Rectanglesum2d
+public class Rectanglesum2dMethod2
 {
-    static int findsum(int[][] matrix,int l1,int r1,int l2,int r2)
+    static void findPrefixsumMatrix(int[][] matrix)
+    {
+        int r=matrix.length;
+        int c=matrix[0].length;
+
+        //Tranverse horizontally to calculate row-wise prefix sum
+
+        for(int i=0;i<r;i++)
+        {
+            for(int j=1;j<c;j++)
+            {
+                matrix[i][j]+=matrix[i][j-1];
+            }
+        }
+    }
+
+    static int findsum1(int[][] matrix,int l1,int r1,int l2,int r2)
     {
         int sum=0;
+        findPrefixsumMatrix(matrix);
+
         for(int i=l1;i<=l2;i++)
         {
-            for(int j=r1;j<=r2;j++)
+            // r1 to r2 sum of row 1
+            if(r1>=1)
             {
-                sum+=matrix[i][j];
+                sum+=matrix[i][r2]-matrix[i][r1-1];
+            }
+            else
+            {
+                sum+=matrix[i][r2];
             }
         }
         return sum;
@@ -51,6 +73,6 @@ public class Rectanglesum2d
         System.out.print("Enter r2 : ");
         int r2=sc.nextInt();
 
-        System.out.println("Rectangle Sum : "+findsum(matrix,l1,r1,l2,r2));
+        System.out.println("Rectangle Sum : "+findsum1(matrix,l1,r1,l2,r2));
     }
 }
