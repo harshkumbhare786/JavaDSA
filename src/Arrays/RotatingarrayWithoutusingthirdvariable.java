@@ -57,7 +57,7 @@ public class RotatingarrayWithoutusingthirdvariable
     public static void main(String[] args)
     {
         Scanner sc = new Scanner(System.in);
-        Arraydemo123 obj = new Arraydemo123();
+        ArrayDdemo12 obj = new ArrayDdemo12();
         obj.arrays();
 
         System.out.print("Enter the value of k : ");

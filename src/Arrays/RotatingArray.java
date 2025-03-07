@@ -76,4 +76,3 @@ public class RotatingArray
         obj.rotation(k);
     }
 }
-
